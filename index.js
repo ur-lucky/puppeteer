@@ -151,7 +151,7 @@ async function puppeteerlogin() {
     //user is not logged in
     if (!response.id) {
         console.log("Fetch response:", response);
-        page.turnstile = true
+        browser.turnstile = true;
         const loginButton = await page.waitForSelector('button ::-p-text(Log in)', { visible: true, timeout: 1_000 }).then(() => true).catch(() => false);
         if (loginButton) {
             await page.click('button ::-p-text(Log in)');
